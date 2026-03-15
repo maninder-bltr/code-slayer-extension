@@ -40,8 +40,8 @@ YouTube, LinkedIn, Instagram, Facebook, Twitter/X, Reddit, TikTok
 
 ## Support
 Found a bug? Have feedback?
-GitHub: [your-repo-link]
-Email: [your-email]
+GitHub: [[your-repo-link](https://github.com/maninder-bltr/code-slayer-extension)]
+Email: [maninder.bltr@gmail.com]
 
 ## 📥 Installation (Beta)
 
