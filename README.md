@@ -10,7 +10,7 @@ Practice becomes a gamified journey where you become a ninja warrior fighting co
 ## Features
 ⚔️ Daily Coding Missions - 2 problems per day to build consistency
 
-🔒 Focus Mode - Blocks distracting sites until mission complete
+🔒 Focus Mode - Blocks distracting sites until the mission is complete
 
 🎮 Gamification - XP, levels, ranks, and streaks
 
@@ -49,8 +49,10 @@ YouTube, LinkedIn, Instagram, Facebook, Twitter/X, Reddit, TikTok
 
 ## Support
 Found a bug? Have feedback?
-GitHub: [[your-repo-link](https://github.com/maninder-bltr/code-slayer-extension)]
-Email: [maninder.bltr@gmail.com]
+
+GitHub: https://github.com/maninder-bltr/code-slayer-extension
+
+Email: maninder.bltr@gmail.com
 
 ## 📥 Installation (Beta)
 
