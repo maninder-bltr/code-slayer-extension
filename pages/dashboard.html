@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Code Slayer - Training Grounds</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body data-theme="dark-ninja">
+    <div id="blockingIndicator" class="blocking-indicator" style="display: none;">
+        <span class="indicator-icon">🔒</span>
+        <span class="indicator-text">Sites blocked until mission complete</span>
+    </div>
+    <div class="dashboard">
+        <!-- Stats Header -->
+        <header class="stats-header">
+            <div class="avatar-display">
+                <div class="avatar-icon" id="userAvatar">⚔️</div>
+                <div class="avatar-label">Slayer Avatar</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Current Streak</div>
+                <div class="stat-value" id="streakVal">0</div>
+                <div class="stat-sub">Keep the fire burning 🔥</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Demons Slain</div>
+                <div class="stat-value" id="defeatedVal">0</div>
+                <div class="stat-sub">Total problems completed 👺</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Slayer XP</div>
+                <div class="stat-value" id="xpVal">0</div>
+                <div class="stat-sub" id="xpTarget">Target: 100 XP</div>
+            </div>
+        </header>
+
+        <!-- Rank Section -->
+        <section class="rank-section">
+            <div class="rank-info">
+                <h2>Current Rank &nbsp;</h2>
+                <div class="rank-name" id="rankName">Trainee</div>
+                <div class="rank-avatar" id="rankAvatar">⚔️</div>
+            </div>
+            <div class="level-info">
+                <div class="level-number" id="levelNum">Level 1</div>
+                <div class="xp-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="xpProgress" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beginner Guide (shown for Trainees) -->
+        <section id="beginnerGuide" class="guide-card" style="display: none;">
+            <h4>⚔️ Welcome, New Warrior!</h4>
+            <p>Your journey begins with the "Basics". These are the foundations of all legendary Slayers.</p>
+            <ul class="guide-steps">
+                <li>Complete your first "Basic" problems to unlock Level 2.</li>
+                <li>Each problem attempt weakens the site blockers.</li>
+                <li>Visit the Algorithm Temple daily to keep your streak.</li>
+            </ul>
+            <button class="btn-text" id="btn-hide-guide">Understood, Master</button>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <h3>⚔️ Today's Mission</h3>
+            <div id="missionList" class="mission-list">
+                <!-- Mission items injected here -->
+                <div class="empty-mission">Loading your next battle...</div>
+            </div>
+        </section>
+
+        <section id="bonusProblemsSection" class="bonus-section" style="display: none;">
+            <h3>🔥 Continue Training</h3>
+            <div id="bonusList" class="bonus-list">
+                <!-- Bonus problems injected here -->
+            </div>
+        </section>
+
+        <!-- Topic Performance -->
+        <section class="performance-section">
+            <h3>Topic Mastery</h3>
+            <div class="topic-list" id="topicList">
+                <!-- Topic items injected here -->
+            </div>
+        </section>
+
+        <!-- Narrative Section -->
+        <section class="narrative-section">
+            <p id="storyText">"Greatness is forged in the fires of consistency..."</p>
+        </section>
+
+        <!-- Badges Section -->
+        <section class="badges-section">
+            <h3>Trophies of War</h3>
+            <div class="badge-grid" id="badgeGrid">
+                <!-- Badges -->
+                <div class="badge">
+                    <div class="badge-icon">🥚</div>
+                    <div class="badge-name">Newcomer</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">🔥</div>
+                    <div class="badge-name">First Streak</div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="quick-actions">
+            <button class="btn-secondary" id="btn-settings">Settings</button>
+            <button class="btn-secondary" id="btn-reset">Reset Journey</button>
+        </footer>
+    </div>
+    <script type="module" src="dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+{
+  "manifest_version": 3,
+  "name": "Code Slayer",
+  "description": "A gamified coding discipline system to become a legendary developer.",
+  "version": "1.0",
+  "permissions": [
+    "storage",
+    "tabs",
+    "alarms",
+    "notifications",
+    "scripting",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon1.png",
+      "48": "assets/icons/icon1.png",
+      "128": "assets/icons/icon1.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icons/icon1.png",
+    "48": "assets/icons/icon1.png",
+    "128": "assets/icons/icon1.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://leetcode.com/problems/*",
+        "*://www.geeksforgeeks.org/*"
+      ],
+      "js": [
+        "content/problemTracker.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "data/*",
+        "pages/*",
+        "services/*",
+        "utils/*",
+        "assets/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}

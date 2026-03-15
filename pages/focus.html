@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Interrupted - Code Slayer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background-image:
+                radial-gradient(circle at 50% 50%, rgba(255, 71, 87, 0.1) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(255, 165, 2, 0.05) 0%, transparent 40%);
+        }
+
+        .focus-container {
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(26, 26, 37, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 71, 87, 0.3);
+            max-width: 600px;
+            width: 90%;
+            animation: focusFade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 0 60px rgba(255, 71, 87, 0.2);
+        }
+
+        @keyframes focusFade {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .icon {
+            font-size: 5em;
+            margin-bottom: 24px;
+            display: block;
+            filter: drop-shadow(0 0 30px rgba(255, 71, 87, 0.6));
+            animation: iconPulse 2s infinite;
+        }
+
+        @keyframes iconPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ff4757, #ffa502);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #a0a0b0;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .mission-box {
+            background: rgba(255, 71, 87, 0.1);
+            border: 1px solid rgba(255, 71, 87, 0.3);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .mission-box h3 {
+            color: #ff4757;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mission-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 3px solid var(--status-color);
+        }
+
+        .mission-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .mission-item.completed {
+            --status-color: #00b894;
+        }
+
+        .mission-item.attempted {
+            --status-color: #ffa502;
+        }
+
+        .mission-item.not-started {
+            --status-color: #ff4757;
+        }
+
+        .mission-label {
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .mission-status {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .mission-status.completed {
+            background: rgba(0, 184, 148, 0.2);
+            color: #00b894;
+        }
+
+        .mission-status.attempted {
+            background: rgba(255, 165, 2, 0.2);
+            color: #ffa502;
+        }
+
+        .mission-status.not-started {
+            background: rgba(255, 71, 87, 0.2);
+            color: #ff4757;
+        }
+
+        .btn-battle {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.4);
+            animation: buttonGlow 2s infinite;
+        }
+
+        @keyframes buttonGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 10px 30px rgba(255, 71, 87, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 10px 50px rgba(255, 71, 87, 0.6);
+            }
+        }
+
+        .btn-battle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.6);
+        }
+
+        .btn-battle:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-battle.loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .progress-section {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-text {
+            color: #a0a0b0;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff4757, #ffa502);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .motivation-text {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255, 165, 2, 0.1);
+            border: 1px solid rgba(255, 165, 2, 0.3);
+            border-radius: 12px;
+            font-style: italic;
+            color: #a0a0b0;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .error-message {
+            background: rgba(214, 48, 49, 0.1);
+            border: 1px solid rgba(214, 48, 49, 0.3);
+            color: #ff7675;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .loading-text {
+            color: #a0a0b0;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="focus-container">
+        <span class="icon">🚫</span>
+        <h1>Training Interrupted</h1>
+        <p class="subtitle">A demon still lives in your path. You cannot pass until today's training is complete.</p>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message"></div>
+
+        <!-- Mission Display -->
+        <div class="mission-box" id="missionBox">
+            <h3>⚔️ Today's Mission</h3>
+            <div id="missionList">
+                <div class="loading-text">Loading mission...</div>
+            </div>
+        </div>
+
+        <!-- Progress Section -->
+        <div class="progress-section">
+            <p class="progress-text">Mission Progress</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Motivation -->
+        <div class="motivation-text" id="motivationText">
+            "A ninja does not fear the difficult path. They fear the path never taken."
+        </div>
+
+        <!-- Action Button -->
+        <div style="margin-top: 30px;">
+            <button id="btnOpenBattle" class="btn-battle">
+                ⚔️ Open Battle
+            </button>
+        </div>
+    </div>
+
+    <!-- ✅ External JavaScript File (No Inline Scripts) -->
+    <script src="focus.js"></script>
+</body>
+
+</html>

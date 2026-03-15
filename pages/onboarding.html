@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome, Warrior - Code Slayer</title>
+    <link rel="stylesheet" href="onboarding.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="onboarding-container">
+        <!-- Background Effects -->
+        <div class="bg-effect bg-effect-1"></div>
+        <div class="bg-effect bg-effect-2"></div>
+        <div class="bg-particles" id="particles"></div>
+
+        <!-- ============================================
+             SCREEN 1: WELCOME STORY
+             ============================================ -->
+        <div id="screen-welcome" class="screen active">
+            <div class="story-card">
+                <!-- Logo -->
+                <div class="logo-section">
+                    <div class="logo-icon">⚔️</div>
+                    <h1 class="logo-text">CODE SLAYER</h1>
+                    <p class="logo-tagline">"The Algorithm Temple awaits."</p>
+                </div>
+
+                <!-- Story Section -->
+                <div class="story-section">
+                    <div class="story-scroll">
+                        <div class="story-chapter">
+                            <h2 class="chapter-title">📜 The Legend of the Code Slayer</h2>
+                            <div class="story-content">
+                                <p class="story-text">
+                                    In the digital realm, <strong class="highlight">chaos reigns</strong>.
+                                    Demons of <span class="danger">Bug</span>, <span class="danger">Timeout</span>,
+                                    and <span class="danger">Memory Leak</span> plague the lands of Logic.
+                                </p>
+                                <p class="story-text">
+                                    For centuries, developers have fallen to these creatures.
+                                    Their streaks broken. Their motivation lost.
+                                    Their GitHub gardens... <span class="danger">empty</span>.
+                                </p>
+                                <p class="story-text">
+                                    But legend speaks of warriors who mastered the <strong class="highlight">Sacred
+                                        Scrolls of DSA</strong>.
+                                    They became <strong class="highlight">Code Slayers</strong> —
+                                    beings of pure logic, consistency, and unstoppable momentum.
+                                </p>
+                                <p class="story-text epic">
+                                    ⚔️ <strong>Now, the Temple chooses YOU.</strong> ⚔️
+                                </p>
+                                <p class="story-text">
+                                    Your journey begins today. Each problem solved is a demon slain.
+                                    Each day of practice forges your blade sharper.
+                                    Each streak earned brings you closer to <strong class="highlight">legendary
+                                        status</strong>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Path Preview -->
+                        <div class="path-preview">
+                            <h3 class="path-title">🗺️ Your Journey Awaits</h3>
+                            <div class="path-visual">
+                                <div class="path-node start">
+                                    <div class="node-icon">🌱</div>
+                                    <span class="node-label">Trainee</span>
+                                </div>
+                                <div class="path-line"></div>
+                                <div class="path-node">
+                                    <div class="node-icon">⚔️</div>
+                                    <span class="node-label">Ninja</span>
+                                </div>
+                                <div class="path-line"></div>
+                                <div class="path-node">
+                                    <div class="node-icon">👹</div>
+                                    <span class="node-label">Hunter</span>
+                                </div>
+                                <div class="path-line"></div>
+                                <div class="path-node">
+                                    <div class="node-icon">🔥</div>
+                                    <span class="node-label">Elite</span>
+                                </div>
+                                <div class="path-line"></div>
+                                <div class="path-node legendary">
+                                    <div class="node-icon">👑</div>
+                                    <span class="node-label">Legendary</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Choice Section -->
+                <div class="choice-section">
+                    <h3 class="choice-title">Choose Your Training Style:</h3>
+                    <div class="choice-cards">
+                        <div class="choice-card" id="btn-ninja-path">
+                            <div class="choice-icon">🥷</div>
+                            <h4>The Ninja Path</h4>
+                            <p>Guided journey through DSA fundamentals. Perfect for beginners.</p>
+                            <div class="choice-badge">Recommended</div>
+                        </div>
+                        <div class="choice-card" id="btn-custom-training">
+                            <div class="choice-icon">🎯</div>
+                            <h4>Custom Training</h4>
+                            <p>Focus on specific topics you want to master.</p>
+                            <div class="choice-badge">For experienced</div>
+                        </div>
+                    </div>
+                    <div class="blocking-notice">
+                        <span class="notice-icon">🔒</span>
+                        <span class="notice-text">
+                            <strong>Focus Mode:</strong> Distracting sites blocked until daily mission complete.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             SCREEN 2: NINJA PATH DETAILS
+             ============================================ -->
+        <div id="screen-ninja-info" class="screen">
+            <div class="story-card">
+                <div class="path-header">
+                    <button id="btn-back-to-welcome" class="btn-back">← Back</button>
+                    <h2>🥷 The Ninja Path</h2>
+                </div>
+
+                <div class="path-intro">
+                    <p class="intro-text">
+                        You begin as a <strong class="highlight">Trainee</strong>.
+                        Your journey progresses through the <strong class="highlight">Nine Sacred Realms of
+                            DSA</strong>.
+                        Each realm conquered unlocks new powers and brings you closer to becoming legendary.
+                    </p>
+                </div>
+
+                <!-- The DSA Path Visualization -->
+                <div class="dungeon-path">
+                    <h3 class="path-section-title">⚔️ The Nine Sacred Realms</h3>
+
+                    <div class="realm-track">
+                        <!-- Realm 1 -->
+                        <div class="realm" data-realm="1">
+                            <div class="realm-marker">
+                                <div class="marker-icon">1</div>
+                                <div class="marker-glow"></div>
+                            </div>
+                            <div class="realm-content">
+                                <h4 class="realm-name">🌱 Realm of Foundations</h4>
+                                <p class="realm-desc">Master the building blocks of all algorithms</p>
+                                <div class="realm-topics">
+                                    <span class="topic-tag">Arrays</span>
+                                    <span class="topic-tag">Strings</span>
+                                    <span class="topic-tag">Hashing</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Realm 2 -->
+                        <div class="realm" data-realm="2">
+                            <div class="realm-marker">
+                                <div class="marker-icon">2</div>
+                                <div class="marker-glow"></div>
+                            </div>
+                            <div class="realm-content">
+                                <h4 class="realm-name">🎯 Realm of Precision</h4>
+                                <p class="realm-desc">Learn to manipulate data with surgical accuracy</p>
+                                <div class="realm-topics">
+                                    <span class="topic-tag">Two Pointers</span>
+                                    <span class="topic-tag">Sliding Window</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Realm 3 -->
+                        <div class="realm" data-realm="3">
+                            <div class="realm-marker">
+                                <div class="marker-icon">3</div>
+                                <div class="marker-glow"></div>
+                            </div>
+                            <div class="realm-content">
+                                <h4 class="realm-name">📚 Realm of Structure</h4>
+                                <p class="realm-desc">Organize data like a master architect</p>
+                                <div class="realm-topics">
+                                    <span class="topic-tag">Stack</span>
+                                    <span class="topic-tag">Queue</span>
+                                    <span class="topic-tag">Linked List</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Realm 4 -->
+                        <div class="realm" data-realm="4">
+                            <div class="realm-marker">
+                                <div class="marker-icon">4</div>
+                                <div class="marker-glow"></div>
+                            </div>
+                            <div class="realm-content">
+                                <h4 class="realm-name">🔍 Realm of Search</h4>
+                                <p class="realm-desc">Find anything in logarithmic time</p>
+                                <div class="realm-topics">
+                                    <span class="topic-tag">Binary Search</span>
+                                    <span class="topic-tag">Binary Search Trees</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Realm 5 -->
+                        <div class="realm" data-realm="5">
+                            <div class="realm-marker">
+                                <div class="marker-icon">5</div>
+                                <div class="marker-glow"></div>
+                            </div>
+                            <div class="realm-content">
+                                <h4 class="realm-name">🌳 Realm of Trees</h4>
+                                <p class="realm-desc">Navigate hierarchical structures with grace</p>
+                                <div class="realm-topics">
+                                    <span class="topic-tag">Trees</span>
+                                    <span class="topic-tag">BST</span>
+                                    <span class="topic-tag">Traversals</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Realm 6 -->
+                        <div class="realm" data-realm="6">
+                            <div class="realm-marker">
+                                <div class="marker-icon">6</div>
+                                <div class="marker-glow"></div>
+                            </div>
+                            <div class="realm-content">
+                                <h4 class="realm-name">🕸️ Realm of Connections</h4>
+                                <p class="realm-desc">Map relationships and find optimal paths</p>
+                                <div class="realm-topics">
+                                    <span class="topic-tag">Graphs</span>
+                                    <span class="topic-tag">BFS</span>
+                                    <span class="topic-tag">DFS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Realm 7 -->
+                        <div class="realm" data-realm="7">
+                            <div class="realm-marker">
+                                <div class="marker-icon">7</div>
+                                <div class="marker-glow"></div>
+                            </div>
+                            <div class="realm-content">
+                                <h4 class="realm-name">💰 Realm of Optimization</h4>
+                                <p class="realm-desc">Make greedy choices that lead to victory</p>
+                                <div class="realm-topics">
+                                    <span class="topic-tag">Greedy</span>
+                                    <span class="topic-tag">Backtracking</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Realm 8 -->
+                        <div class="realm" data-realm="8">
+                            <div class="realm-marker">
+                                <div class="marker-icon">8</div>
+                                <div class="marker-glow"></div>
+                            </div>
+                            <div class="realm-content">
+                                <h4 class="realm-name">🧩 Realm of Dynamic Thinking</h4>
+                                <p class="realm-desc">Break problems into overlapping subproblems</p>
+                                <div class="realm-topics">
+                                    <span class="topic-tag">Dynamic Programming</span>
+                                    <span class="topic-tag">Memoization</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Realm 9 -->
+                        <div class="realm" data-realm="9">
+                            <div class="realm-marker legendary">
+                                <div class="marker-icon">9</div>
+                                <div class="marker-glow legendary"></div>
+                            </div>
+                            <div class="realm-content legendary">
+                                <h4 class="realm-name">👑 Realm of Legends</h4>
+                                <p class="realm-desc">Master advanced patterns and become unstoppable</p>
+                                <div class="realm-topics">
+                                    <span class="topic-tag">Advanced DP</span>
+                                    <span class="topic-tag">Segment Trees</span>
+                                    <span class="topic-tag">Tries</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Motivational Quote -->
+                <div class="motivation-box">
+                    <div class="quote-icon">💬</div>
+                    <p class="quote-text">
+                        "A ninja does not fear the difficult path.
+                        They fear the path never taken."
+                    </p>
+                    <p class="quote-author">— Master Kenji, First Code Slayer</p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-section">
+                    <button id="btn-begin-ninja" class="btn-primary btn-large">
+                        ⚔️ Begin Journey
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             SCREEN 3: CUSTOM TOPIC SELECTION
+             ============================================ -->
+        <div id="screen-topic-selector" class="screen">
+            <div class="story-card">
+                <div class="path-header">
+                    <button id="btn-back-to-welcome2" class="btn-back">← Back</button>
+                    <h2>🎯 Select Your Training Grounds</h2>
+                </div>
+
+                <p class="intro-text">
+                    Choose the topics you wish to master.
+                    Demons in these realms will be your daily targets.
+                </p>
+
+                <div class="topics-grid">
+                    <h3 class="topic-category">📦 Data Structures</h3>
+                    <div class="topic-options">
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Arrays">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Arrays</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Strings">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Strings</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Hashing">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Hashing</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Linked List">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Linked List</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Stack">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Stack</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Queue">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Queue</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Trees">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Trees</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Graph">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Graph</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Trie">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Trie</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Heap">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Heap</span>
+                        </label>
+                    </div>
+
+                    <h3 class="topic-category">⚡ Algorithms</h3>
+                    <div class="topic-options">
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Two Pointers">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Two Pointers</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Sliding Window">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Sliding Window</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Binary Search">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Binary Search</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Dynamic Programming">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Dynamic Programming</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Greedy">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Greedy</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Backtracking">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Backtracking</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="Recursion">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">Recursion</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="DFS">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">DFS</span>
+                        </label>
+                        <label class="topic-checkbox">
+                            <input type="checkbox" value="BFS">
+                            <span class="checkmark"></span>
+                            <span class="topic-name">BFS</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="difficulty-section">
+                    <h3 class="topic-category">⚔️ Select Difficulty</h3>
+                    <div class="difficulty-options">
+                        <label class="difficulty-radio">
+                            <input type="radio" name="difficulty" value="easy">
+                            <span class="radio-mark"></span>
+                            <span class="difficulty-name">Easy</span>
+                            <span class="difficulty-desc">Warm up your blade</span>
+                        </label>
+                        <label class="difficulty-radio">
+                            <input type="radio" name="difficulty" value="medium" checked>
+                            <span class="radio-mark"></span>
+                            <span class="difficulty-name">Medium</span>
+                            <span class="difficulty-desc">True warrior training</span>
+                        </label>
+                        <label class="difficulty-radio">
+                            <input type="radio" name="difficulty" value="hard">
+                            <span class="radio-mark"></span>
+                            <span class="difficulty-name">Hard</span>
+                            <span class="difficulty-desc">Legendary challenges</span>
+                        </label>
+                        <label class="difficulty-radio">
+                            <input type="radio" name="difficulty" value="mixed">
+                            <span class="radio-mark"></span>
+                            <span class="difficulty-name">Mixed</span>
+                            <span class="difficulty-desc">Random demons</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="action-section">
+                    <button id="btn-start-training" class="btn-primary btn-large">
+                        🎯 Start Training
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="onboarding.js"></script>
+</body>
+
+</html>

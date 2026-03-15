@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="title-row">
+        <h1>⚔ CODE SLAYER</h1>
+        <div class="rank-badge" id="userRank">Trainee</div>
+      </div>
+      <div class="stats-row">
+        <div class="stat">🔥 <span id="streakCount">0</span> days</div>
+        <div class="stat">👹 <span id="demonsDefeated">0</span></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="mission">
+        <h2>DAILY MISSION</h2>
+        <div id="problemList">
+          <!-- Problems will be injected here -->
+          <div class="loading">Generating mission...</div>
+        </div>
+      </section>
+
+      <section class="motivation">
+        <p id="motivationText">"A ninja sharpens the blade daily. A developer sharpens the mind."</p>
+      </section>
+
+      <div class="actions">
+        <button id="openDashboard" class="secondary">Open Dashboard</button>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

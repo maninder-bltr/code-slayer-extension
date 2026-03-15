@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Choose Training Ground - Code Slayer</title>
+    <style>
+        :root {
+            --primary: #e63946;
+            --bg-dark: #0f0f0f;
+            --text-main: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            width: 400px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .topic-opt {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .topic-opt.selected {
+            background: var(--primary);
+        }
+
+        .diff-selector {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        select {
+            background: #333;
+            color: white;
+            border: 1px solid var(--border);
+            padding: 8px;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="screen-topic-selector" class="screen">
+        <h2>Select Topics to Train</h2>
+
+        <div class="topics-grid">
+
+            <!-- Data Structures -->
+            <h3>Data Structures</h3>
+
+            <label><input type="checkbox" value="arrays"> Arrays</label>
+            <label><input type="checkbox" value="strings"> Strings</label>
+            <label><input type="checkbox" value="hash"> Hash</label>
+            <label><input type="checkbox" value="linked_list"> Linked List</label>
+            <label><input type="checkbox" value="stack"> Stack</label>
+            <label><input type="checkbox" value="queue"> Queue</label>
+            <label><input type="checkbox" value="tree"> Tree</label>
+            <label><input type="checkbox" value="graph"> Graph</label>
+            <label><input type="checkbox" value="heap"> Heap</label>
+            <label><input type="checkbox" value="trie"> Trie</label>
+
+            <!-- Algorithms -->
+
+            <h3>Algorithms</h3>
+
+            <label><input type="checkbox" value="dynamic_programming"> Dynamic Programming</label>
+            <label><input type="checkbox" value="binary_search"> Binary Search</label>
+            <label><input type="checkbox" value="two_pointers"> Two Pointers</label>
+            <label><input type="checkbox" value="sliding_window"> Sliding Window</label>
+            <label><input type="checkbox" value="greedy"> Greedy</label>
+            <label><input type="checkbox" value="backtracking"> Backtracking</label>
+            <label><input type="checkbox" value="dfs"> DFS</label>
+            <label><input type="checkbox" value="bfs"> BFS</label>
+            <label><input type="checkbox" value="bit_magic"> Bit Manipulation</label>
+            <label><input type="checkbox" value="recursion"> Recursion</label>
+
+        </div>
+
+        <div class="difficulty-select">
+            <h3>Select Difficulty</h3>
+
+            <label><input type="radio" name="difficulty" value="easy"> Easy</label>
+            <label><input type="radio" name="difficulty" value="medium"> Medium</label>
+            <label><input type="radio" name="difficulty" value="hard"> Hard</label>
+            <label><input type="radio" name="difficulty" value="mixed" checked> Mixed</label>
+        </div>
+
+        <div class="actions">
+            <button id="btn-start-training" class="primary">Start Training</button>
+            <button id="btn-back-to-welcome2" class="text-btn">Back</button>
+        </div>
+    </div>
+    <script type="module">
+        import { storage } from '../utils/storage.js';
+
+        const selectedTopics = new Set();
+        document.querySelectorAll('.topic-opt').forEach(opt => {
+            opt.addEventListener('click', () => {
+                const topic = opt.dataset.topic;
+                if (selectedTopics.has(topic)) {
+                    selectedTopics.delete(topic);
+                    opt.classList.remove('selected');
+                } else {
+                    selectedTopics.add(topic);
+                    opt.classList.add('selected');
+                }
+            });
+        });
+
+        document.getElementById('btn-start-custom').addEventListener('click', async () => {
+            if (selectedTopics.size === 0) {
+                alert('Select at least one training ground, warrior!');
+                return;
+            }
+
+            await storage.set('userProfile', {
+                onboardingComplete: true,
+                learningMode: 'CUSTOM_TOPIC',
+                selectedTopics: Array.from(selectedTopics),
+                difficulty: document.getElementById('difficulty').value
+            });
+
+            chrome.runtime.sendMessage({ type: 'CHECK_MISSION_STATUS' });
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+
+</html>

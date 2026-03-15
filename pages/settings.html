@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Code Slayer</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+    <div class="settings-container">
+        <!-- Header -->
+        <header class="settings-header">
+            <button id="btn-back" class="btn-back">← Back to Dashboard</button>
+            <h1>⚙️ Settings</h1>
+        </header>
+
+        <!-- Settings Tabs -->
+        <nav class="settings-tabs">
+            <button class="tab-btn active" data-tab="reminders">🔔 Reminders</button>
+            <button class="tab-btn" data-tab="personalization">🎨 Personalization</button>
+            <button class="tab-btn" data-tab="missions">⚔️ Missions</button>
+            <button class="tab-btn" data-tab="api">🤖 AI Settings</button>
+        </nav>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+
+            <!-- ============================================
+                 REMINDERS TAB
+                 ============================================ -->
+            <div id="reminders-tab" class="tab-pane active">
+                <h2>🔔 Daily Reminders</h2>
+                <p class="tab-description">Never miss your daily training! Get notified to slay demons.</p>
+
+                <div class="settings-card">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>⏰ Enable Daily Reminder</h3>
+                            <p>Get notified every day to complete your mission</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="reminderEnabled">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>🕐 Reminder Time</h3>
+                            <p>Choose when to receive your daily notification</p>
+                        </div>
+                        <input type="time" id="reminderTime" value="20:00" class="time-input">
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>📝 Custom Reminder Message</h3>
+                            <p>Personalize your notification message</p>
+                        </div>
+                        <input type="text" id="reminderMessage" placeholder="⚔ Your demons are waiting..."
+                            class="text-input" value="⚔ Your demons are waiting. Complete today's mission!">
+                    </div>
+
+                    <div class="setting-actions">
+                        <button id="btn-save-reminder" class="btn-primary">💾 Save Reminder Settings</button>
+                        <button id="btn-test-reminder" class="btn-secondary">🧪 Test Notification</button>
+                    </div>
+
+                    <div id="reminder-status" class="status-message"></div>
+                </div>
+
+                <div class="settings-card">
+                    <h3>📅 Reminder Schedule</h3>
+                    <div class="schedule-preview" id="schedulePreview">
+                        <p>Next reminder: <strong id="nextReminderTime">--:--</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 PERSONALIZATION TAB
+                 ============================================ -->
+            <div id="personalization-tab" class="tab-pane">
+                <h2>🎨 UI Personalization</h2>
+                <p class="tab-description">Make Code Slayer yours! Customize your training experience.</p>
+
+                <div class="settings-card">
+                    <h3>🌈 Theme Selection</h3>
+                    <p class="setting-description">Choose your visual style</p>
+
+                    <div class="theme-grid">
+                        <div class="theme-option" data-theme="dark-ninja">
+                            <div class="theme-preview dark-ninja-preview"></div>
+                            <h4>🥷 Dark Ninja</h4>
+                            <p>Classic dark theme for night warriors</p>
+                        </div>
+                        <div class="theme-option" data-theme="cyberpunk">
+                            <div class="theme-preview cyberpunk-preview"></div>
+                            <h4>🤖 Cyberpunk</h4>
+                            <p>Neon vibes for future slayers</p>
+                        </div>
+                        <div class="theme-option" data-theme="minimal">
+                            <div class="theme-preview minimal-preview"></div>
+                            <h4>📄 Minimal</h4>
+                            <p>Clean and distraction-free</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <h3>👤 Slayer Avatar</h3>
+                    <p class="setting-description">Choose your warrior identity</p>
+
+                    <div class="avatar-grid">
+                        <div class="avatar-option" data-avatar="dragon-slayer">
+                            <div class="avatar-icon">🐉</div>
+                            <h4>Dragon Slayer</h4>
+                            <p>For those who conquer the hardest challenges</p>
+                        </div>
+                        <div class="avatar-option" data-avatar="shadow-ninja">
+                            <div class="avatar-icon">⚔️</div>
+                            <h4>Shadow Ninja</h4>
+                            <p>Silent, deadly, and consistent</p>
+                        </div>
+                        <div class="avatar-option" data-avatar="demon-hunter">
+                            <div class="avatar-icon">🔥</div>
+                            <h4>Demon Hunter</h4>
+                            <p>Born to slay coding demons</p>
+                        </div>
+                        <div class="avatar-option" data-avatar="code-samurai">
+                            <div class="avatar-icon">️</div>
+                            <h4>Code Samurai</h4>
+                            <p>Honor, discipline, mastery</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <div class="setting-actions">
+                        <button id="btn-save-personalization" class="btn-primary">💾 Save Personalization</button>
+                    </div>
+                    <div id="personalization-status" class="status-message"></div>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 MISSIONS TAB
+                 ============================================ -->
+            <div id="missions-tab" class="tab-pane">
+                <h2>⚔️ Mission Controls</h2>
+                <p class="tab-description">Manage your daily missions and challenges.</p>
+
+                <div class="settings-card">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>🔄 Reroll Today's Problem</h3>
+                            <p>Get a different problem if you don't like the current one</p>
+                            <p class="cost-badge">💰 Cost: 50 XP</p>
+                        </div>
+                        <button id="btn-reroll-problem" class="btn-action">Reroll (50 XP)</button>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>⏭️ Skip Daily Mission</h3>
+                            <p>Skip today's mission without breaking your streak</p>
+                            <p class="cost-badge">💰 Cost: 100 XP</p>
+                        </div>
+                        <button id="btn-skip-mission" class="btn-action btn-danger">Skip (100 XP)</button>
+                    </div>
+
+                    <div id="mission-actions-status" class="status-message"></div>
+                </div>
+
+                <div class="settings-card">
+                    <h3>📊 Current Stats</h3>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-label">Current XP</span>
+                            <span class="stat-value" id="currentXP">0</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Rerolls Available</span>
+                            <span class="stat-value" id="rerollsAvailable">0</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Skips Available</span>
+                            <span class="stat-value" id="skipsAvailable">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-card warning-card">
+                    <h3>⚠️ Important Notes</h3>
+                    <ul class="warning-list">
+                        <li>Rerolls give you 2 new problems from the same topic</li>
+                        <li>Skips preserve your streak but don't give XP</li>
+                        <li>XP costs are deducted immediately</li>
+                        <li>Maximum 3 rerolls and 2 skips per week</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 API SETTINGS TAB
+                 ============================================ -->
+            <div id="api-tab" class="tab-pane">
+                <h2>🤖 AI Settings</h2>
+                <p class="tab-description">Configure Google Gemini API for AI-powered features.</p>
+
+                <div class="settings-card">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>🔑 Gemini API Key</h3>
+                            <p>Required for AI motivation stories and problem recommendations</p>
+                        </div>
+                    </div>
+
+                    <input type="password" id="geminiApiKey" placeholder="Enter your Gemini API key"
+                        class="text-input full-width">
+
+                    <div class="setting-actions">
+                        <button id="btn-save-api" class="btn-primary">💾 Save API Key</button>
+                        <button id="btn-test-api" class="btn-secondary">🧪 Test Connection</button>
+                    </div>
+
+                    <div id="api-status" class="status-message"></div>
+
+                    <div class="api-info">
+                        <h4>📖 How to Get API Key</h4>
+                        <ol>
+                            <li>Go to <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI
+                                    Studio</a></li>
+                            <li>Sign in with your Google account</li>
+                            <li>Click "Create API Key"</li>
+                            <li>Copy and paste it above</li>
+                        </ol>
+                        <p class="note">🔒 Your API key is stored locally and never sent to our servers.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="settings.js"></script>
+</body>
+
+</html>
