@@ -35,8 +35,11 @@ YouTube, LinkedIn, Instagram, Facebook, Twitter/X, Reddit, TikTok
 
 ## Perfect For
 ✓ Developers building coding habits
+
 ✓ Students preparing for interviews
+
 ✓ Anyone struggling with consistency
+
 ✓ LeetCode/GeeksForGeeks users
 
 ## Privacy
