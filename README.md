@@ -9,11 +9,17 @@ Practice becomes a gamified journey where you become a ninja warrior fighting co
 
 ## Features
 ⚔️ Daily Coding Missions - 2 problems per day to build consistency
+
 🔒 Focus Mode - Blocks distracting sites until mission complete
+
 🎮 Gamification - XP, levels, ranks, and streaks
+
 🥷 Ninja Path - Structured DSA learning journey
+
 🎯 Custom Topics - Focus on specific areas you want to master
+
 🏆 Achievement System - Badges, ranks, and progress tracking
+
 🤖 AI Motivation - Personalized stories and encouragement
 
 ## How It Works
