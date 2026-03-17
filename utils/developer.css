@@ -1,0 +1,158 @@
+/* Developer Badge Styles */
+.dev-badge-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+}
+
+.dev-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #0984e3;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(9, 132, 227, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.dev-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(9, 132, 227, 0.4);
+    background: #0873c4;
+}
+
+.dev-badge svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+/* Developer Card Styles */
+.dev-card {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 240px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #1a1a25;
+    z-index: 10001;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dev-badge-container:hover .dev-card {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dev-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dev-info-icon {
+    width: 32px;
+    height: 32px;
+    background: #e1f0ff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0984e3;
+    flex-shrink: 0;
+}
+
+.dev-info-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.dev-name {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    color: #1a1a25;
+    white-space: nowrap;
+}
+
+.dev-social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+.social-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.social-btn.linkedin {
+    background: #0077b5;
+    color: white;
+}
+
+.social-btn.linkedin:hover {
+    background: #006399;
+    transform: translateY(-1px);
+}
+
+.social-btn.github {
+    background: #24292e;
+    color: white;
+}
+
+.social-btn.github:hover {
+    background: #1a1e22;
+    transform: translateY(-1px);
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark-ninja"] .dev-card {
+    background: #1a1a25;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark-ninja"] .dev-name {
+    color: #ffffff;
+}
+
+[data-theme="dark-ninja"] .dev-info-icon {
+    background: rgba(9, 132, 227, 0.15);
+}
+
+[data-theme="dark-ninja"] .dev-profile {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
