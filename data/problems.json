@@ -5,51 +5,44 @@
             "problems": [
                 {
                     "label": "Sum of First N Natural Numbers",
-                    "question": "https://www.geeksforgeeks.org/sum-of-first-n-natural-numbers/",
-                    "solution": "https://github.com/chandanagrawal23/DSA-Sheet/blob/main/HalwaProblems/SumFirstNNatural.cpp",
+                    "question": "https://www.geeksforgeeks.org/problems/sum-of-series2811/1&selectedLang=javascript",
                     "difficulty": "easy",
                     "id": 1001,
                     "important": true
                 },
                 {
                     "label": "Check Prime Number",
-                    "question": "https://www.geeksforgeeks.org/c-program-to-check-prime-number/",
-                    "solution": "https://github.com/chandanagrawal23/DSA-Sheet/blob/main/HalwaProblems/CheckPrimeNumber.cpp",
+                    "question": "https://www.geeksforgeeks.org/problems/prime-number2314/1",
                     "difficulty": "easy",
                     "id": 1002
                 },
                 {
                     "label": "Reverse a Number",
-                    "question": "https://www.geeksforgeeks.org/write-a-program-to-reverse-digits-of-a-number/",
-                    "solution": "https://github.com/chandanagrawal23/DSA-Sheet/blob/main/HalwaProblems/ReverseNumber.cpp",
+                    "question": "https://leetcode.com/problems/reverse-integer/description/",
                     "difficulty": "easy",
                     "id": 1003
                 },
                 {
                     "label": "Check Palindrome Number",
                     "question": "https://leetcode.com/problems/palindrome-number/",
-                    "solution": "https://github.com/chandanagrawal23/DSA-Sheet/blob/main/HalwaProblems/PalindromeNumber.cpp",
                     "difficulty": "easy",
                     "id": 1004
                 },
                 {
                     "label": "Factorial of a Number",
-                    "question": "https://www.geeksforgeeks.org/factorial-large-number/",
-                    "solution": "https://github.com/chandanagrawal23/DSA-Sheet/blob/main/HalwaProblems/FactorialN.cpp",
+                    "question": "https://www.geeksforgeeks.org/problems/factorials-of-large-numbers2508/1",
                     "difficulty": "easy",
                     "id": 1005
                 },
                 {
                     "label": "Check Leap Year",
-                    "question": "https://www.geeksforgeeks.org/program-check-given-year-leap-year/",
-                    "solution": "https://github.com/chandanagrawal23/DSA-Sheet/blob/main/HalwaProblems/LeapYear.cpp",
+                    "question": "https://www.geeksforgeeks.org/problems/leap-year0943/1",
                     "difficulty": "easy",
                     "id": 1007
                 },
                 {
                     "label": "Check Armstrong Number",
-                    "question": "https://www.geeksforgeeks.org/program-for-armstrong-numbers/",
-                    "solution": "https://github.com/chandanagrawal23/DSA-Sheet/blob/main/HalwaProblems/ArmStrong.cpp",
+                    "question": "https://www.geeksforgeeks.org/problems/armstrong-numbers2727/1",
                     "difficulty": "easy",
                     "id": 1008
                 },
@@ -62,22 +55,19 @@
                 },
                 {
                     "label": "Find Smallest Element in an Array",
-                    "question": "https://www.geeksforgeeks.org/to-find-smallest-and-second-smallest-element-in-an-array/",
-                    "solution": "https://github.com/chandanagrawal23/DSA-Sheet/blob/main/HalwaProblems/SmallestInArray.cpp",
+                    "question": "https://www.geeksforgeeks.org/problems/find-the-smallest-and-second-smallest-element-in-an-array3226/1",
                     "difficulty": "easy",
                     "id": 1010
                 },
                 {
                     "label": "Swap Two Numbers Without Using a Temporary Variable",
-                    "question": "https://www.geeksforgeeks.org/swap-two-numbers-without-using-temporary-variable/",
-                    "solution": "https://github.com/chandanagrawal23/DSA-Sheet/blob/main/HalwaProblems/SwapWithoutVar.cpp",
+                    "question": "https://www.geeksforgeeks.org/problems/swap-two-numbers3844/1",
                     "difficulty": "easy",
                     "id": 1011
                 },
                 {
                     "label": "Check if a Number is Perfect Square",
-                    "question": "https://www.geeksforgeeks.org/check-if-given-number-is-perfect-square-in-cpp/",
-                    "solution": "https://github.com/chandanagrawal23/DSA-Sheet/blob/main/HalwaProblems/CheckPerfectSquare.cpp",
+                    "question": "https://www.geeksforgeeks.org/problems/check-perfect-square5253/1",
                     "difficulty": "easy",
                     "id": 1012
                 },
@@ -103,14 +93,12 @@
                 {
                     "label": "Print Pascal's Triangle II",
                     "question": "https://leetcode.com/problems/pascals-triangle-ii/",
-                    "solution": "-",
                     "difficulty": "easy",
                     "id": 1015
                 },
                 {
                     "label": "Print Floyd's Triangle",
-                    "question": "https://www.geeksforgeeks.org/program-to-print-floyds-triangle/",
-                    "solution": "-",
+                    "question": "https://www.geeksforgeeks.org/problems/floyds-triangle1222/1",
                     "difficulty": "easy",
                     "id": 1016
                 },
@@ -130,22 +118,19 @@
                 },
                 {
                     "label": "Print Matrix Diagonal Pattern",
-                    "question": "https://www.geeksforgeeks.org/print-matrix-diagonal-pattern/",
-                    "solution": "-",
+                    "question": "https://www.geeksforgeeks.org/problems/print-matrix-in-diagonal-pattern/1",
                     "difficulty": "medium",
                     "id": 1019
                 },
                 {
                     "label": "Generate Matrix in Concentric Rectangular Pattern",
-                    "question": "https://www.geeksforgeeks.org/print-concentric-rectangular-pattern-in-a-2d-matrix/",
-                    "solution": "-",
+                    "question": "https://www.geeksforgeeks.org/dsa/print-concentric-rectangular-pattern-in-a-2d-matrix/",
                     "difficulty": "medium",
                     "id": 1020
                 },
                 {
                     "label": "Print X in a rectangular box",
-                    "question": "https://www.geeksforgeeks.org/pattern-print-x-rectangular-box/",
-                    "solution": "-",
+                    "question": "https://leetcode.com/problems/unique-paths/",
                     "difficulty": "medium",
                     "id": 1021
                 },

@@ -430,21 +430,51 @@ async function initializeBlockers() {
     }
 }
 
+/**
+ * Helper: Toggle the static ruleset (rules.json) on or off.
+ * This is required because static rules are independent of dynamic rules
+ * and will keep blocking even if all dynamic rules are removed.
+ */
+async function setStaticRulesetEnabled(enabled) {
+    try {
+        if (enabled) {
+            await chrome.declarativeNetRequest.updateEnabledRulesets({
+                enableRulesetIds: ['ruleset_1']
+            });
+            console.log('✅ Static ruleset ENABLED');
+        } else {
+            await chrome.declarativeNetRequest.updateEnabledRulesets({
+                disableRulesetIds: ['ruleset_1']
+            });
+            console.log('✅ Static ruleset DISABLED');
+        }
+    } catch (error) {
+        console.error('❌ Error toggling static ruleset:', error);
+    }
+}
+
 
 async function updateSiteBlockers(mission) {
     console.log('🔒 Updating site blockers...');
 
-    const allCompleted = mission?.problems?.every(p => p.status === 'COMPLETED');
+    // ✅ FIX: Only consider DAILY problems for blocking (not bonus problems)
+    const dailyProblems = (mission?.problems || []).filter(p => !p.isBonus);
+    const allCompleted = dailyProblems.length > 0 && dailyProblems.every(p => p.status === 'COMPLETED');
     const noMission = !mission || !mission.problems || mission.problems.length === 0;
 
-    console.log('All completed:', allCompleted);
+    console.log('Daily problems count:', dailyProblems.length);
+    console.log('All daily completed:', allCompleted);
     console.log('No mission:', noMission);
 
     if (allCompleted || noMission) {
-        // UNBLOCK - Remove all dynamic rules
+        // UNBLOCK - Remove all dynamic rules AND disable static ruleset
         console.log('✅ Unblocking all sites');
 
         try {
+            // ✅ FIX: Disable the static ruleset from rules.json
+            await setStaticRulesetEnabled(false);
+
+            // Remove dynamic rules
             const currentRules = await chrome.declarativeNetRequest.getDynamicRules();
             const ruleIds = currentRules.map(rule => rule.id);
 
@@ -453,7 +483,7 @@ async function updateSiteBlockers(mission) {
                     removeRuleIds: ruleIds,
                     addRules: []
                 });
-                console.log('✅ Removed', ruleIds.length, 'blocking rules');
+                console.log('✅ Removed', ruleIds.length, 'dynamic blocking rules');
             }
 
             // Store blocking state
@@ -463,10 +493,14 @@ async function updateSiteBlockers(mission) {
             console.error('❌ Error unblocking sites:', error);
         }
     } else {
-        // BLOCK - Add dynamic rules
+        // BLOCK - Add dynamic rules AND enable static ruleset
         console.log('🚫 Blocking social sites');
 
         try {
+            // ✅ FIX: Enable the static ruleset from rules.json
+            await setStaticRulesetEnabled(true);
+
+            // Add dynamic rules
             const rules = BLOCKED_SITES.map((site, index) => ({
                 id: index + 100, // Start from 100 to avoid conflict with static rules
                 priority: 1,
@@ -491,7 +525,7 @@ async function updateSiteBlockers(mission) {
                 addRules: rules
             });
 
-            console.log('✅ Added', rules.length, 'blocking rules');
+            console.log('✅ Added', rules.length, 'dynamic blocking rules');
 
             // Store blocking state
             await storage.set('sitesBlocked', true);
