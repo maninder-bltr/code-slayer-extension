@@ -69,6 +69,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
     });
+
+    document.getElementById('btn-problems')?.addEventListener('click', () => {
+        window.location.href = 'problems.html';
+    });
 });
 
 async function updateBlockingIndicator() {

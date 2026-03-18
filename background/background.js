@@ -41,11 +41,14 @@ chrome.runtime.onInstalled.addListener(async (details) => {
     chrome.alarms.create('daily-mission', { periodInMinutes: 1440 });
 
     setTimeout(() => initializeBlockers(), 1000);
+
+    setTimeout(() => initializeReminderOnLoad(), 1500);
 });
 
 chrome.runtime.onStartup.addListener(async () => {
     console.log('Extension starting up...');
     setTimeout(() => initializeBlockers(), 1000);
+    setTimeout(() => initializeReminderOnLoad(), 1500);
 });
 
 chrome.alarms.onAlarm.addListener(async (alarm) => {
@@ -57,6 +60,15 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
     if (alarm.name === 'reminder-alarm') {
         console.log('🔔 Reminder alarm triggered');
         await sendReminderNotification();
+    }
+});
+
+chrome.notifications.onClicked.addListener(async (notificationId) => {
+    console.log('🔔 Notification clicked:', notificationId);
+
+    if (notificationId === 'mission-complete' || notificationId.includes('reminder')) {
+        // Open dashboard
+        await chrome.tabs.create({ url: chrome.runtime.getURL('pages/dashboard.html') });
     }
 });
 
@@ -619,6 +631,20 @@ async function getDashboardData() {
 // ============================================
 // REMINDER FUNCTIONS
 // ============================================
+
+async function initializeReminderOnLoad() {
+    console.log('🔔 Initializing reminder on extension load...');
+
+    const settings = await storage.get('settings') || {};
+
+    if (settings.reminderEnabled && settings.reminderTime) {
+        // Recreate alarm
+        await updateReminder(true, settings.reminderTime);
+        console.log('✅ Reminder alarm restored for', settings.reminderTime);
+    } else {
+        console.log('ℹ️ Reminder disabled or no time set');
+    }
+}
 
 async function updateReminder(enabled, time) {
     if (enabled) {

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Library - Code Slayer</title>
+    <link rel="stylesheet" href="problems.css">
+</head>
+
+<body>
+    <div class="problems-container">
+        <!-- Header -->
+        <header class="problems-header">
+            <div class="header-left">
+                <button id="btn-back" class="btn-back">← Back to Dashboard</button>
+                <h1>📚 Problem Library</h1>
+            </div>
+            <div class="header-stats">
+                <div class="stat-badge">
+                    <span class="stat-label">🏆 Slayed</span>
+                    <span class="stat-value" id="slayedCount">0</span>
+                </div>
+                <div class="stat-badge">
+                    <span class="stat-label">👹 Remaining</span>
+                    <span class="stat-value" id="remainingCount">0</span>
+                </div>
+                <div class="stat-badge">
+                    <span class="stat-label">📦 Total</span>
+                    <span class="stat-value" id="totalCount">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Filter Toggle Button (Always Visible) -->
+        <div class="filter-toggle-container">
+            <button id="btnToggleFilters" class="btn-toggle-filters">
+                <span class="toggle-icon">🔍</span>
+                <span class="toggle-text">Filters</span>
+                <span class="filter-count" id="activeFiltersCount">0</span>
+            </button>
+            <div class="view-toggle">
+                <button id="btnViewAll" class="view-btn active">📋 All Problems</button>
+                <button id="btnViewSections" class="view-btn">📁 By Sections</button>
+            </div>
+        </div>
+
+        <!-- Collapsible Filter Panel -->
+        <div id="filterPanel" class="filter-panel">
+            <div class="filter-panel-header">
+                <h3>🎯 Filter Problems</h3>
+                <button id="btnCloseFilters" class="btn-close-filters">✕</button>
+            </div>
+
+            <div class="filter-panel-content">
+                <!-- Search -->
+                <div class="filter-group">
+                    <label class="filter-label">🔍 Search</label>
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search problems or topics...">
+                    </div>
+                </div>
+
+                <!-- Status Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">📊 Status</label>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All Realms</button>
+                        <button class="filter-btn" data-filter="completed">✅ Slayed Only</button>
+                        <button class="filter-btn" data-filter="pending">👹 Pending Only</button>
+                    </div>
+                </div>
+
+                <!-- Difficulty Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">⚡ Difficulty</label>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-difficulty="all">All</button>
+                        <button class="filter-btn" data-difficulty="easy">Easy</button>
+                        <button class="filter-btn" data-difficulty="medium">Medium</button>
+                        <button class="filter-btn" data-difficulty="hard">Hard</button>
+                    </div>
+                </div>
+
+                <!-- Section Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">📁 Sections</label>
+                    <div class="filter-buttons section-filters" id="sectionFilters">
+                        <button class="filter-btn active" data-section="all">All Sections</button>
+                        <!-- Dynamic section buttons will be added here -->
+                    </div>
+                </div>
+
+                <!-- Active Filters Summary -->
+                <div class="filter-group">
+                    <label class="filter-label">🏷️ Active Filters</label>
+                    <div id="activeFiltersList" class="active-filters-list">
+                        <span class="no-filters">No active filters</span>
+                    </div>
+                    <button id="btnClearFilters" class="btn-clear-filters">Clear All Filters</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay (when filter panel is open) -->
+        <div id="filterOverlay" class="filter-overlay"></div>
+
+        <!-- Problems by Sections View -->
+        <div id="sectionsView" class="sections-view">
+            <!-- Sections will be rendered here -->
+        </div>
+
+        <!-- Problems Flat List View -->
+        <div id="flatView" class="problems-list" style="display: none;">
+            <!-- Flat list will be rendered here -->
+        </div>
+
+        <!-- Note Modal -->
+        <div id="noteModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>📝 Problem Notes</h3>
+                    <button class="modal-close" id="closeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="problem-info">
+                        <h4 id="modalProblemTitle">Problem Title</h4>
+                        <p id="modalProblemMeta"></p>
+                    </div>
+                    <textarea id="noteText"
+                        placeholder="💡 Write your strategy, approach, or key insights here... (max 235 characters)"
+                        maxlength="235" rows="6"></textarea>
+                    <div class="char-count">
+                        <span id="charCount">0</span>/235 characters
+                    </div>
+                    <div class="modal-actions">
+                        <button id="btnSaveNote" class="btn-primary">💾 Save Note</button>
+                        <button id="btnDeleteNote" class="btn-danger">🗑️ Delete Note</button>
+                    </div>
+                    <div id="noteStatus" class="status-message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="problems.js"></script>
+</body>
+
+</html>
